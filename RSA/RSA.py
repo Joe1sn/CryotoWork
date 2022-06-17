@@ -1,11 +1,13 @@
 #coding:utf-8
 #Author:Joe1sn
 #python 3.8.2
-
-import binascii
-import struct
-import sys
 from random import randint
+
+global is_ch
+is_ch = 0
+def ErrorCather(zh_msg,en_msg):
+	if is_ch: print(zh_msg)
+	else: print(en_msg)
 
 
 class RSA(object):
@@ -38,11 +40,12 @@ class RSA(object):
 		while 1:
 			#虽然我知道这里利用拓展欧几里得算法可以求逆
 			#但是结果可能为负数，而且速度跟不上
-			#而且公钥e就是一个素数，通过便利很快就能找到
+			#而且公钥e就是一个素数，通过遍历很快就能找到
 			if (ed*self.phi_n+1)%self.e==0:
 				self.d = (ed*self.phi_n+1)//self.e
 				break
 			ed+=1
+
 		if self.Debug:
 			print("p>",self.p)
 			print("q>",self.q)
@@ -88,12 +91,8 @@ class RSA(object):
 					# print(result)
 					if int(i) == 1:
 						result = (result*b)%m
-						b = (b*b)%m
-					else:
-						b = (b*b)%m
-
+					b = (b*b)%m
 				return result
-
 			else:
 				ErrorCather("参数必须大于0","arguments must lager than 0")
 				return
@@ -152,6 +151,7 @@ class RSA(object):
 			ErrorCather("参数必须全为整数","arguments must be integers")
 
 	#欧几里得算法
+	# return (a,b)
 	def Ecuild(a,b):
 		#判断ab是否为数字
 		if a.isdigit() and b.isdigit():
@@ -246,7 +246,6 @@ class RSA(object):
 		if len(Msg) != 0x50:
 			ErrorCather("消息长度必须为0x50","Message length must be 0x50")
 			return
-
 		else:
 			cipher = RSA.ReModule(RSA.Byte2Hex(Msg),self.e,self.n)
 			return cipher
