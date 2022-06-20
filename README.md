@@ -27,7 +27,7 @@
 # To Do List
 
 - [ ] AES
-- [ ] DES
+- [x] DES
 - [ ] D-H
 - [ ] Elgamal
 - [x] Euclid
