@@ -17,9 +17,25 @@
 | Extend_Euclid  | Euclid Extended Algorithm Implementation                   |
 | img            | screen_shot file_pictures                                  |
 | MD5            | MD5 Algorithm Implementation                               |
-| PackedProgram  | Using QT5 to Package All Crypto Algorithm with GUI Form    |
+| Package        | Package all implementations in one python package          |
 | Primality_test | A Series of Primality Detection Algorithms Implementation  |
 | RSA            | RSA Encryption and Decryption Algorithm Implementation,    |
 | SHA1           | SHA1 Algorithm Implementation                              |
 
 - Below Each folder have a `ReadMe.md` file to give Description of current project **IN CHINESE**
+
+# To Do List
+
+- [ ] AES
+- [ ] DES
+- [ ] D-H
+- [ ] Elgamal
+- [x] Euclid
+- [x] Extend_Euclid
+- [x] Primality_test
+- [ ] MD5
+- [ ] Package
+- [ ] RSA
+   - [x] encrypt and decrypt message
+   - [ ] a better way to find secrect key `d`
+ - [ ] SHA1
